@@ -1,3 +1,6 @@
+const fetch = require("node-fetch");
+
+
 const user1 = "Reed";
 const user2 = "Doug";
 
@@ -106,8 +109,43 @@ function countdown(startingNumber, step) {
 
 
   // partial applications
-  function getData(baseUrl, route) {
-      fetch(`${baseUrl}${route}`)
-        .then(response => response.json())
-        .then(data => console.log(data));
-  } 
+  // applying some and not all the arguments to the function
+
+  function getData(baseUrl) {
+      return function(route) {
+          return function(callback){
+            fetch(`${baseUrl}${route}`)
+                .then(response => response.json())
+                .then(data => callback(data));
+            }
+    }
+    }
+
+
+    // partial application here 
+  const getSocialMediaData = getData('https://jsonplaceholder.typicode.com');
+  const getSocialMediaPosts = getSocialMediaData('/posts');
+
+  getSocialMediaPosts(posts => {
+      posts.forEach(post => console.log(post.title));
+  })
+
+
+
+  // functions name
+
+  // create a todo
+  function createTodo() {}
+
+
+  // update a todo
+
+  // check off todo
+  function checkCOmpleteTodo() {}
+
+  // delete todo
+  function deleteTodo() {}
+
+
+  // getting user 
+  function fetchUser() {}
