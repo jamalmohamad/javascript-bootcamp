@@ -313,3 +313,38 @@ const numbers2 = new Set([1], [2], [3]);
 for (const num of numbers2) {
     console.log(num);
 }
+
+
+
+
+// use New, immutable arrays freatures
+const numbers4 = [1,2,3,4,5];
+
+// instead of normal for loop use forEach
+// for (let i = 0; i < numbers4.length; i++){
+//     console.log(numbers4[i]);
+// }
+
+numbers4.forEach(number => {
+    console.log(number);
+});
+
+
+/**
+ * 
+ * - map()
+ * - filter()
+ * - reduce()
+ * - some() / every()
+ * - find() / findIndex()
+ * - forEach
+ * 
+ * 
+ * 
+ * Plus:
+ * 
+ * - slice()
+ * - concat()
+ * - includes()
+ * - array spread operator ...
+ */
